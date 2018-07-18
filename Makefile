@@ -48,3 +48,8 @@ bootstrap: Gemfile.lock
 	gem install bundler
 	bundle install
 	touch $@
+
+.PHONY: sqlfmt
+sqlfmt:
+	git checkout _includes v1* v2* *.md
+	go run ./scripts/sqlfmt.go
